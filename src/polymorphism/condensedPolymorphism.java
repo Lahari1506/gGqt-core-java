@@ -1,5 +1,6 @@
-package inheritance;
-class plane{
+package polymorphism;
+
+class plane1{
 	void takeoff() {
 		System.out.println("the plane takeoff");
 	}
@@ -10,7 +11,7 @@ class plane{
 		System.out.println("the plane lands");
 		}
 }
-class cargoplane extends plane{
+class cargoplane1 extends plane1{
 	//@ override
 	void fly() {
 		System.out.println("the cargoplane flys on low range");
@@ -19,7 +20,7 @@ class cargoplane extends plane{
 		System.out.println("=============================");
 	}
 }
-class passangerplane extends plane{
+class passangerplane1 extends plane1{
 	//@override
 	void fly() {
 		System.out.println("the passengerplane flys on medium range");
@@ -28,7 +29,8 @@ class passangerplane extends plane{
 		System.out.println("=============================");
 	}
 }
-class fighterplane extends plane{
+
+class fighterplane1 extends plane1{
 	//@override
 	void fly() {
 		System.out.println("the fighterplane flys on high range");
@@ -37,27 +39,31 @@ class fighterplane extends plane{
 		System.out.println("=============================");
 	}
 }
-public class InheritancMethods {
+class Airport {
+	void permit(plane1 ref) {
+		ref.takeoff();
+		ref.fly();
+		ref.land();
+	}
+}
+
+public class condensedPolymorphism {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		cargoplane cp=new cargoplane();
-		passangerplane pp=new passangerplane();
-		fighterplane fp=new fighterplane();
-		
-		cp.takeoff();
-		cp.fly();
-		cp.land();
+		cargoplane1 cp=new cargoplane1();
+		passangerplane1 pp=new passangerplane1();
+		fighterplane1 fp=new fighterplane1();
+		Airport ap=new Airport();
+		ap.permit(cp);
 		cp.carrygoods();
-		pp.takeoff();
-		pp.fly();
-		pp.land();
+		
+		ap.permit(pp);
 		pp.carryhumans();
-		fp.takeoff();
-		fp.fly();
-		fp.land();
+		
+		ap.permit(fp);
 		fp.carryweapons();
-
 	}
 
 }
+

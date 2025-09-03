@@ -1,4 +1,5 @@
-package inheritance;
+package polymorphism;
+
 class plane{
 	void takeoff() {
 		System.out.println("the plane takeoff");
@@ -37,7 +38,8 @@ class fighterplane extends plane{
 		System.out.println("=============================");
 	}
 }
-public class InheritancMethods {
+
+public class planePolymorphism {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -45,19 +47,24 @@ public class InheritancMethods {
 		passangerplane pp=new passangerplane();
 		fighterplane fp=new fighterplane();
 		
-		cp.takeoff();
-		cp.fly();
-		cp.land();
+		plane ref;
+		ref = cp;
+		ref.takeoff();
+		ref.fly();
+		ref.land();
 		cp.carrygoods();
-		pp.takeoff();
-		pp.fly();
-		pp.land();
+		
+		ref =pp;
+		ref.takeoff();
+		ref.fly();
+		ref.land();
 		pp.carryhumans();
-		fp.takeoff();
-		fp.fly();
-		fp.land();
+		
+		ref=fp;
+		ref.takeoff();
+		ref.fly();
+		ref.land();
 		fp.carryweapons();
-
 	}
 
 }
